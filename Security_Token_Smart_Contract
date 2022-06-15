@@ -1,0 +1,13 @@
+txn = AssetConfigTxn(sender=account['pk'],
+                    sp=params,
+                    total=10000,                // Security tokens are typically fungible
+                    default_frozen=False,
+                    unit_name="RESTRICT",
+                    asset_name="restricted@arc3",
+                    manager=account['pk'],      // Address able to change mutable asset data
+                    reserve=account['pk'],      // Address where non-minted assets will reside
+                    freeze=account['pk'],       // Address able un/freeze the asset
+                    clawback=account['pk'],     // Address able to remove asset from account
+                    url="https://path/to/my/fractional/asset/metadata.json",
+                    metadata_hash=json_metadata_hash,
+                    decimals=2)                 // Security tokens typically have some precision
